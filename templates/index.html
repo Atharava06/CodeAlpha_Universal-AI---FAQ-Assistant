@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Universal AI & FAQ Assistant | Powered by Google Gemini & NLP</title>
+  <meta name="description" content="Intelligent multi-domain AI assistant powered by Google Gemini and NLP Cosine Similarity for university FAQs, coding, science, literature, and general knowledge.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body data-theme="dark">
+  <div class="app-wrapper">
+    <!-- Main Chat Window -->
+    <main class="chat-card" role="region" aria-label="Universal AI Chatbot Window">
+      
+      <!-- Top Navigation Header -->
+      <header class="chat-header">
+        <div class="header-brand">
+          <div class="avatar-wrapper">
+            <div class="avatar-glow"></div>
+            <div class="robot-avatar" aria-hidden="true">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+            </div>
+            <span class="status-indicator online" title="Assistant is online and ready"></span>
+          </div>
+          <div class="brand-text">
+            <div class="brand-title-row">
+              <h1 class="brand-name">Universal AI & FAQ Assistant</h1>
+              <span id="google-key-badge" class="badge google-badge" title="Click to configure Google Gemini API Key">
+                <i class="fa-brands fa-google"></i> <span id="google-status-text">Google AI Ready</span>
+              </span>
+            </div>
+            <p class="brand-subtitle">Ask anything across <strong>every domain</strong> &mdash; university FAQs, coding, science, business & general knowledge</p>
+          </div>
+        </div>
+
+        <!-- Header Action Controls -->
+        <div class="header-actions">
+          <button id="browse-faqs-btn" class="icon-btn" title="Browse Institutional FAQs" aria-label="Browse Institutional FAQs">
+            <i class="fa-solid fa-book-open"></i>
+            <span class="btn-text">Browse FAQs</span>
+          </button>
+          <button id="settings-btn" class="icon-btn highlight-btn" title="Google API Key & NLP Settings" aria-label="Settings">
+            <i class="fa-solid fa-key"></i>
+            <span class="btn-text">API Key / Settings</span>
+          </button>
+          <button id="theme-toggle-btn" class="icon-btn" title="Toggle Light/Dark Theme" aria-label="Toggle theme">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+          <button id="clear-chat-btn" class="icon-btn danger-hover" title="Clear conversation" aria-label="Clear Chat">
+            <i class="fa-solid fa-trash-can"></i>
+            <span class="btn-text">Clear</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Chat Stream Messages Container -->
+      <div id="chat-messages" class="chat-messages" role="log" aria-live="polite" aria-label="Conversation messages">
+        
+        <!-- Welcome Hero Banner -->
+        <div class="welcome-card" id="welcome-card">
+          <div class="welcome-icon">
+            <i class="fa-solid fa-globe"></i>
+          </div>
+          <h2 class="welcome-title">Hi! I'm your Universal AI & FAQ Assistant.</h2>
+          <p class="welcome-desc">
+            I am open for <strong>every domain</strong>! Ask me about <strong>programming, science, mathematics, creative writing, history, or business</strong> &mdash; or get instant verified answers for university admissions, fees, and campus life.
+          </p>
+
+          <!-- Suggested Quick Question Chips Across Domains -->
+          <div class="suggested-section">
+            <div class="suggested-label">
+              <i class="fa-solid fa-sparkles"></i> Try Asking (Across Any Domain):
+            </div>
+            <div id="suggested-chips" class="suggested-chips-container" role="group" aria-label="Suggested Multi-Domain Questions">
+              <button class="chip" data-question="Write a Python function to check if a word is a palindrome">
+                <i class="fa-brands fa-python"></i> Python: Palindrome check
+              </button>
+              <button class="chip" data-question="How can I apply for admission?">
+                <i class="fa-solid fa-graduation-cap"></i> How can I apply for admission?
+              </button>
+              <button class="chip" data-question="Explain how quantum computers work simply">
+                <i class="fa-solid fa-atom"></i> Science: Quantum computing
+              </button>
+              <button class="chip" data-question="What are the campus library operating hours?">
+                <i class="fa-solid fa-book"></i> What are the library hours?
+              </button>
+              <button class="chip" data-question="Give me 5 essential tips for preparing for a job interview">
+                <i class="fa-solid fa-briefcase"></i> Career: Job interview tips
+              </button>
+              <button class="chip" data-question="How does photosynthesis convert light into energy?">
+                <i class="fa-solid fa-seedling"></i> Biology: Photosynthesis
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dynamic chat messages will be inserted here -->
+
+      </div>
+
+      <!-- Live Typing Indicator -->
+      <div id="typing-indicator" class="typing-indicator-container hidden" aria-live="assertive">
+        <div class="bot-bubble-avatar">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+        </div>
+        <div class="typing-bubble">
+          <span class="typing-label">Thinking across knowledge domains</span>
+          <div class="typing-dots">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chat Input Area -->
+      <footer class="chat-input-area">
+        <form id="chat-form" class="chat-form" onsubmit="return false;">
+          <div class="input-wrapper">
+            <label for="user-input" class="sr-only">Type your question</label>
+            <textarea
+              id="user-input"
+              class="chat-input"
+              rows="1"
+              placeholder="Ask anything across any domain (e.g., Explain gravity, Python code, campus fees...)"
+              maxlength="1000"
+              autocomplete="off"
+              spellcheck="true"
+              required
+            ></textarea>
+            <div class="input-actions-inline">
+              <span id="char-counter" class="char-counter">0/1000</span>
+              <button
+                type="submit"
+                id="send-btn"
+                class="send-btn"
+                aria-label="Send question"
+                title="Send question (Enter)"
+              >
+                <i class="fa-solid fa-paper-plane"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+        <div class="input-footnote">
+          <span><i class="fa-solid fa-keyboard"></i> Press <strong>Enter</strong> to send, <strong>Shift + Enter</strong> for new line</span>
+          <span id="connection-status" class="connection-status"><i class="fa-solid fa-circle-check"></i> Hybrid AI Engine Active</span>
+        </div>
+      </footer>
+    </main>
+
+    <!-- Modal 1: FAQ Knowledge Base Explorer Drawer -->
+    <div id="faq-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="faq-modal-title">
+      <div class="modal-card">
+        <div class="modal-header">
+          <div class="modal-title-wrap">
+            <i class="fa-solid fa-book-bookmark modal-icon"></i>
+            <div>
+              <h3 id="faq-modal-title" class="modal-title">University FAQ Knowledge Base</h3>
+              <p class="modal-subtitle">Browse all verified institutional questions and answers</p>
+            </div>
+          </div>
+          <button id="close-faq-modal" class="icon-btn close-btn" aria-label="Close dialog">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <div class="faq-filter-bar">
+            <div class="search-box">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" id="faq-search-input" placeholder="Search questions by keyword..." autocomplete="off">
+            </div>
+            <select id="faq-category-filter" class="category-select" aria-label="Filter by category">
+              <option value="all">All Categories</option>
+            </select>
+          </div>
+
+          <div id="faq-list-container" class="faq-list-container">
+            <div class="loading-spinner">
+              <i class="fa-solid fa-circle-notch fa-spin"></i> Loading knowledge base...
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 2: Google API Key & AI Settings Modal -->
+    <div id="settings-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="settings-modal-title">
+      <div class="modal-card small-modal">
+        <div class="modal-header">
+          <div class="modal-title-wrap">
+            <i class="fa-solid fa-sliders modal-icon"></i>
+            <div>
+              <h3 id="settings-modal-title" class="modal-title">Google API Key & AI Settings</h3>
+              <p class="modal-subtitle">Unlock questions across every domain using Google Gemini</p>
+            </div>
+          </div>
+          <button id="close-settings-modal" class="icon-btn close-btn" aria-label="Close settings">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          
+          <!-- Google API Key Section -->
+          <div class="setting-item api-key-box">
+            <div class="setting-label-row">
+              <label for="google-api-key-input" class="setting-label">
+                <i class="fa-brands fa-google"></i> Google Gemini API Key
+              </label>
+              <span id="key-validation-status" class="key-status-badge">Not configured</span>
+            </div>
+            <div class="input-with-action">
+              <input
+                type="password"
+                id="google-api-key-input"
+                class="text-input"
+                placeholder="AIzaSy..."
+                autocomplete="off"
+              >
+              <button id="toggle-key-visibility" class="icon-btn inline-btn" title="Show/Hide Key">
+                <i class="fa-regular fa-eye"></i>
+              </button>
+              <button id="verify-key-btn" class="btn primary-btn inline-btn">
+                <i class="fa-solid fa-circle-check"></i> Validate & Save
+              </button>
+            </div>
+            <div class="key-help-row">
+              <span class="setting-hint">Stored securely in your browser session or configure via <code>GOOGLE_API_KEY</code>.</span>
+              <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer" class="link-btn">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Get Free API Key
+              </a>
+            </div>
+          </div>
+
+          <!-- Chatbot Operational Mode -->
+          <div class="setting-item">
+            <label class="setting-label">AI Operation Mode</label>
+            <div class="mode-selector">
+              <label class="mode-option">
+                <input type="radio" name="ai-mode" value="hybrid" checked>
+                <div class="mode-card">
+                  <div class="mode-header"><i class="fa-solid fa-microchip"></i> <strong>Smart Hybrid (Recommended)</strong></div>
+                  <div class="mode-desc">Checks verified FAQs first; uses Google Gemini for questions in any other domain.</div>
+                </div>
+              </label>
+              <label class="mode-option">
+                <input type="radio" name="ai-mode" value="gemini">
+                <div class="mode-card">
+                  <div class="mode-header"><i class="fa-brands fa-google"></i> <strong>Google Gemini Only</strong></div>
+                  <div class="mode-desc">Routes all queries across every domain directly to Google Gemini AI.</div>
+                </div>
+              </label>
+              <label class="mode-option">
+                <input type="radio" name="ai-mode" value="faq">
+                <div class="mode-card">
+                  <div class="mode-header"><i class="fa-solid fa-database"></i> <strong>Local FAQ Only</strong></div>
+                  <div class="mode-desc">Restricts answering strictly to stored institutional questions via TF-IDF.</div>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Local Cosine Similarity Threshold Slider -->
+          <div class="setting-item">
+            <div class="setting-label-row">
+              <label for="threshold-slider" class="setting-label">Local FAQ Similarity Threshold</label>
+              <span id="threshold-val-display" class="setting-badge">0.25</span>
+            </div>
+            <input
+              type="range"
+              id="threshold-slider"
+              min="0.10"
+              max="0.80"
+              step="0.05"
+              value="0.25"
+              class="range-slider"
+            >
+            <div class="range-labels">
+              <span>0.10 (Lenient)</span>
+              <span>0.25 (Default)</span>
+              <span>0.80 (Strict)</span>
+            </div>
+          </div>
+
+          <div class="modal-actions">
+            <button id="clear-key-btn" class="btn danger-btn">Clear API Key</button>
+            <button id="save-settings-btn" class="btn primary-btn">Close & Apply</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Notification Element -->
+    <div id="toast" class="toast hidden" role="status" aria-live="polite">
+      <i class="fa-solid fa-circle-check toast-icon"></i>
+      <span id="toast-message">Copied to clipboard</span>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

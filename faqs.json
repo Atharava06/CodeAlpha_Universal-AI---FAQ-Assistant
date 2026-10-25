@@ -1,0 +1,212 @@
+[
+  {
+    "id": 1,
+    "category": "Admissions",
+    "question": "How can I apply for admission?",
+    "answer": "You can apply for admission online through the university admissions portal by filling out the application form, uploading the required academic transcripts, and paying the application fee."
+  },
+  {
+    "id": 2,
+    "category": "Admissions",
+    "question": "What are the eligibility criteria for undergraduate programs?",
+    "answer": "Undergraduate admission typically requires completion of high school (10+2 or equivalent) with a minimum aggregate score of 60%, along with qualifying scores in relevant entrance examinations."
+  },
+  {
+    "id": 3,
+    "category": "Admissions",
+    "question": "Can international students apply for admission?",
+    "answer": "Yes, international students are welcome to apply. They must submit certified translated academic records, proof of English language proficiency (TOEFL or IELTS), and a valid passport copy."
+  },
+  {
+    "id": 4,
+    "category": "Application Deadlines",
+    "question": "When is the deadline to submit the admission application?",
+    "answer": "For the Fall semester, the regular application deadline is July 15th, and for the Spring semester, the deadline is November 30th. Late applications may be considered subject to seat availability."
+  },
+  {
+    "id": 5,
+    "category": "Application Deadlines",
+    "question": "What should I do if I miss the application deadline?",
+    "answer": "If you miss the regular deadline, you can apply under the late-entry window if seats remain vacant, or defer your application to the following semester by contacting the Admissions Office."
+  },
+  {
+    "id": 6,
+    "category": "Courses and Programs",
+    "question": "What degree programs and majors are offered?",
+    "answer": "The university offers undergraduate and postgraduate degrees in Computer Science, Information Technology, Mechanical Engineering, Electrical Engineering, Business Administration, Data Science, and Biotechnology."
+  },
+  {
+    "id": 7,
+    "category": "Courses and Programs",
+    "question": "Can I change my major or switch courses after enrolling?",
+    "answer": "Yes, program transfer requests can be submitted to the Academic Dean during the first two weeks of the first semester, subject to minimum GPA requirements and seat availability."
+  },
+  {
+    "id": 8,
+    "category": "Courses and Programs",
+    "question": "Are dual degree or minor specialization programs available?",
+    "answer": "Yes, students in good academic standing (CGPA >= 7.5) can opt for an academic minor or dual degree pathway beginning in their second year."
+  },
+  {
+    "id": 9,
+    "category": "Tuition Fees",
+    "question": "How much is the annual tuition fee?",
+    "answer": "Tuition fees vary by program. Undergraduate engineering and science programs average $4,500 per year, while management and arts programs average $3,800 per year."
+  },
+  {
+    "id": 10,
+    "category": "Tuition Fees",
+    "question": "How can I pay my tuition fees?",
+    "answer": "Tuition fees can be paid online via the student self-service portal using net banking, credit/debit cards, UPI, or through a bank demand draft drawn in favor of the University."
+  },
+  {
+    "id": 11,
+    "category": "Tuition Fees",
+    "question": "Is there an option to pay tuition fees in installments?",
+    "answer": "Yes, the Finance Office offers a semester installment plan allowing students to split each semester's tuition into two or three equal monthly payments upon approval."
+  },
+  {
+    "id": 12,
+    "category": "Refund Policies",
+    "question": "What is the fee refund policy if I withdraw my admission?",
+    "answer": "If you withdraw at least 15 days before the semester start date, you will receive a 100% refund minus a nominal processing fee. Refunds taper to 80%, 50%, and 0% depending on withdrawal timing."
+  },
+  {
+    "id": 13,
+    "category": "Refund Policies",
+    "question": "How long does it take to process a fee refund?",
+    "answer": "Approved fee refunds are processed and credited to the student's registered bank account within 15 to 20 working days from the date of formal withdrawal approval."
+  },
+  {
+    "id": 14,
+    "category": "Scholarships",
+    "question": "Are merit-based scholarships available for students?",
+    "answer": "Yes, merit scholarships covering 25% to 100% of tuition fees are awarded to top-ranking applicants based on entrance exam scores and previous academic records."
+  },
+  {
+    "id": 15,
+    "category": "Scholarships",
+    "question": "How can I apply for financial aid or need-based scholarships?",
+    "answer": "Financial aid applications open at the start of each academic year. Students must submit family income certificates, tax returns, and the official Financial Aid Form to the Student Affairs Office."
+  },
+  {
+    "id": 16,
+    "category": "Class Schedules",
+    "question": "Where can I view my daily class timetable?",
+    "answer": "Class timetables are published on the Student ERP Portal under 'Academic Schedule' and are also updated on departmental bulletin boards before the first week of classes."
+  },
+  {
+    "id": 17,
+    "category": "Class Schedules",
+    "question": "What are the standard college operating hours for lectures?",
+    "answer": "Regular classroom lectures and laboratory sessions run from Monday to Friday between 8:30 AM and 4:30 PM, with optional seminar sessions scheduled on select Saturdays."
+  },
+  {
+    "id": 18,
+    "category": "Examination Dates",
+    "question": "When are the mid-term and final semester examinations scheduled?",
+    "answer": "Mid-term examinations are conducted in the 8th week of the semester, while final end-semester examinations begin in late November for Fall and early May for Spring."
+  },
+  {
+    "id": 19,
+    "category": "Examination Dates",
+    "question": "What should I do if I have exam clashes or miss an exam due to illness?",
+    "answer": "Notify the Controller of Examinations immediately with supporting medical certificates within 3 days to apply for a makeup or supplementary examination."
+  },
+  {
+    "id": 20,
+    "category": "Attendance Requirements",
+    "question": "What is the college attendance policy and minimum percentage required to appear for exams?",
+    "answer": "A minimum attendance of 75% in each course (lectures and practicals combined) is strictly required under the university attendance policy to be eligible for end-semester examinations."
+  },
+  {
+    "id": 21,
+    "category": "Attendance Requirements",
+    "question": "Is attendance relaxation granted for medical emergencies or college events?",
+    "answer": "Yes, up to a 10% attendance condonation (down to 65%) may be granted on medical grounds or university sports/cultural representation with valid pre-approved documentation."
+  },
+  {
+    "id": 22,
+    "category": "Library Hours",
+    "question": "What are the campus library operating hours?",
+    "answer": "The Central Library is open Monday to Saturday from 8:00 AM to 10:00 PM. During final examination weeks, the reading hall remains open 24/7."
+  },
+  {
+    "id": 23,
+    "category": "Library Hours",
+    "question": "How many books can a student borrow and for how long?",
+    "answer": "Undergraduate students can borrow up to 4 books for 14 days, while graduate students may borrow up to 6 books for 28 days with online renewal options."
+  },
+  {
+    "id": 24,
+    "category": "Hostel Facilities",
+    "question": "Are hostel accommodations provided for male and female students?",
+    "answer": "Yes, separate on-campus hostels are available for male and female students, equipped with Wi-Fi, furnished rooms, laundry, dining halls, and 24/7 security."
+  },
+  {
+    "id": 25,
+    "category": "Hostel Facilities",
+    "question": "How do I apply for hostel room allocation?",
+    "answer": "Hostel application forms are available on the Housing Portal upon receiving your admission confirmation. Rooms are allotted on a first-come, first-served basis."
+  },
+  {
+    "id": 26,
+    "category": "Transportation",
+    "question": "Does the college offer campus shuttle or bus transportation?",
+    "answer": "Yes, the university operates a fleet of air-conditioned buses connecting major residential hubs and transit stations to campus across multiple scheduled routes."
+  },
+  {
+    "id": 27,
+    "category": "Transportation",
+    "question": "How can I register for the university bus service?",
+    "answer": "You can register for the bus pass via the Transport Desk on the student portal by selecting your route and paying the semester transport fee."
+  },
+  {
+    "id": 28,
+    "category": "Student ID Cards",
+    "question": "How and when do I receive my Student ID card?",
+    "answer": "Student ID cards are issued by the Security & Administrative Office during orientation week after document verification and biometric photo capture."
+  },
+  {
+    "id": 29,
+    "category": "Student ID Cards",
+    "question": "What should I do if I lose my Student ID card?",
+    "answer": "Report the lost card immediately to the Campus Security Office. You can request a replacement ID card at the Registrar's Office for a replacement fee of $10."
+  },
+  {
+    "id": 30,
+    "category": "Technical Support",
+    "question": "How do I access campus Wi-Fi and the student portal?",
+    "answer": "Login credentials for campus Wi-Fi, ERP, and institutional email (@student.univ.edu) are provided during orientation. Connect to the 'Campus-Secure' network and authenticate."
+  },
+  {
+    "id": 31,
+    "category": "Technical Support",
+    "question": "Who do I contact if I cannot log in or forget my password?",
+    "answer": "You can reset your password using the 'Forgot Password' link on the portal or contact the IT Helpdesk at it-support@univ.edu or extension #4357."
+  },
+  {
+    "id": 32,
+    "category": "Contact Information",
+    "question": "What is the contact information for the Admissions Office?",
+    "answer": "The Admissions Office can be reached by email at admissions@example-univ.edu, by telephone at (555) 019-2834, or in person at Room 101, Administration Building."
+  },
+  {
+    "id": 33,
+    "category": "Contact Information",
+    "question": "How can I contact the Registrar's Office for official documents and transcripts?",
+    "answer": "Contact the Registrar's Office via email at registrar@example-univ.edu or visit the Student Services Center from Monday to Friday, 9:00 AM to 4:00 PM."
+  },
+  {
+    "id": 34,
+    "category": "Contact Information",
+    "question": "Where is the emergency health center located on campus?",
+    "answer": "The Student Health Center is located on the ground floor of Building C, next to the Student Union. It operates 24/7 with emergency ambulance services on call."
+  },
+  {
+    "id": 35,
+    "category": "Scholarships",
+    "question": "Can sports athletes get sports quotas or athletic scholarships?",
+    "answer": "Yes, distinguished athletes who have represented regional, national, or international competitions are eligible for Sports Merit Scholarships covering up to 75% tuition fees."
+  }
+]
